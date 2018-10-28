@@ -36,6 +36,7 @@ public class MyActivity extends AppCompatActivity {
             }});
 
 
+        // it generates a request to generate a new random number
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

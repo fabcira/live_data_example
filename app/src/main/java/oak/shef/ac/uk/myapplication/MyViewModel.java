@@ -16,11 +16,17 @@ public class MyViewModel extends AndroidViewModel {
 
     public MyViewModel (Application application) {
         super(application);
+        // creation and connection to the Repository
         mRepository = new MyRepository(application);
+        // connection to the live data
         stringToDisplay = mRepository.getStringToDisplay();
     }
 
 
+    /**
+     * getter for the live data
+     * @return
+     */
     LiveData<String> getStringToDisplay() {
         if (stringToDisplay == null) {
             stringToDisplay = new MutableLiveData<String>();
@@ -28,6 +34,9 @@ public class MyViewModel extends AndroidViewModel {
         return stringToDisplay;
     }
 
+    /**
+     * request by the UI to generate a new random number
+     */
     public void generateNewNumber() {
         mRepository.generateNewNumber();
     }

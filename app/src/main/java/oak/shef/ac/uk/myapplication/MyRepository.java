@@ -17,6 +17,10 @@ class MyRepository extends ViewModel {
         newString= new MutableLiveData();
     }
 
+    /**
+     * it returns the value of the live data
+     * @return
+     */
     public LiveData<String> getStringToDisplay() {
         if (newString.getValue()=="")
             generateNewNumber();
@@ -24,6 +28,9 @@ class MyRepository extends ViewModel {
     }
 
 
+    /**
+     * called by the UI to request the generation of a new random number
+     */
     public void generateNewNumber() {
         Random r = new Random();
         int i1 = r.nextInt(10000 - 1) + 1;
